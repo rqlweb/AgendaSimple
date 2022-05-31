@@ -1,0 +1,51 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title><strong>Bienvenido a la Agenda</strong> </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+        <hr>
+        <br>
+        <p>Para agregar una Persona a la Agenda:</p>
+        <br>
+        <button mat-raised-button color="primary" (click)="openForm()">Agregar</button>
+        <br>
+    </mat-card-actions> 
+  </mat-card> 
+  <br>
+  <hr>
+  <div *ngIf="seeForm">
+    <app-form-people [seeUpdate]="update" (closeForm)="seeForm=$event"></app-form-people>
+    <hr>
+    <br>
+  </div>
+  <div *ngIf="servicePeople.seeList">
+    <div>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title><strong>Contactos</strong> </mat-card-title>
+        </mat-card-header>
+        <mat-card-content> 
+          <hr>
+          <br>
+          <mat-list role="list">
+            <mat-list-item role="listitem" *ngFor="let item of servicePeople.listPeople; let i = index" >
+              <mat-icon class="material-icons" mat-list-icon>account_circle</mat-icon>
+              <div mat-line><strong>Nombre:</strong> {{item.nombre}} | <strong>Apellidos:</strong> {{item.apellidos}} | <strong>Edad:</strong> {{item.edad}} | <strong>DNI:</strong> {{item.DNI}} | <strong>Cumpleaños:</strong> {{item.cumple | date:'dd-MM-YYYY'}} | <strong>Color Favorito:</strong> {{item.color_favorito}}</div>
+              <div>
+                <button title="borrar" (click)="onEdit(i)">
+                  <mat-icon title="editar" class="material-icons">edit</mat-icon>
+                </button>
+                <button title="borrar" (click)="onDelete(i)">
+                  <mat-icon class="material-icons" style="color: red;">delete</mat-icon>
+                </button>
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+  
+  
+  

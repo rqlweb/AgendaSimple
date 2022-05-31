@@ -1,0 +1,33 @@
+*{
+    margin: 0 auto;
+}
+
+.container {
+    width: 400px;
+    text-align: center;
+}
+
+h3 { 
+    margin: 20px; 
+}
+
+input.ng-pristine.ng-invalid {
+    -webkit-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow:none;
+}
+
+.mat-form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-raised-button {
+    margin-left:10px;
+}
+
+
+button{
+    margin: 5px;
+}
+
